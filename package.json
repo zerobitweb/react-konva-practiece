@@ -1,0 +1,25 @@
+{
+  "name": "react-konva-practice",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "src/index.js",
+  "dependencies": {
+    "konva": "2.5.1",
+    "react": "16.6.3",
+    "react-bootstrap": "0.32.4",
+    "react-color": "2.14.1",
+    "react-dom": "16.6.3",
+    "react-konva": "16.6.31",
+    "react-scripts": "2.1.1",
+    "reactcss": "1.2.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "browserslist": [">0.2%", "not dead", "not ie <= 11", "not op_mini all"]
+}
