@@ -11,9 +11,11 @@ import {
   Glyphicon
 } from "react-bootstrap";
 
+var savedImage = null;
+
 var canvas = document.createElement("canvas");
 canvas.width = 500;
-canvas.height = 250;
+canvas.height = 300;
 var context = canvas.getContext("2d");
 context.strokeStyle = "#DF4B26";
 context.lineJoin = "round";
@@ -32,7 +34,8 @@ class App extends Component {
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onClick = this.onClick.bind(this);
     this.onClick2 = this.onClick2.bind(this);
-
+    this.onClickSave = this.onClickSave.bind(this);
+    this.onClickOpen = this.onClickOpen.bind(this);
     this.callbackColorPicker = this.callbackColorPicker.bind(this);
   }
 
@@ -61,13 +64,21 @@ class App extends Component {
   onClick2 = ev => {
     canvas = document.createElement("canvas");
     canvas.width = 500;
-    canvas.height = 250;
+    canvas.height = 300;
     context = canvas.getContext("2d");
     context.strokeStyle = "#DF4B26";
     context.lineJoin = "round";
     context.lineWidth = 5;
 
     this.setState({ clear: true });
+  };
+  onClickSave = ev => {
+    savedImage = this.refs.stage.getStage().toDataURL();
+    console.log(savedImage);
+  };
+  onClickOpen = ev => {
+    console.log(canvas);
+    console.log(context);
   };
 
   // and core function - drawing
@@ -107,6 +118,7 @@ class App extends Component {
     context.strokeStyle = color;
   };
 
+  // loadがまだ出来ない
   render() {
     return (
       <div>
@@ -129,6 +141,14 @@ class App extends Component {
             <Button onClick={this.onClick2}>
               <Glyphicon glyph="trash" />
               捨てる
+            </Button>
+            <Button onClick={this.onClickSave}>
+              <Glyphicon glyph="save-file" />
+              保存
+            </Button>
+            <Button onClick={this.onClickOpen} disabled={true}>
+              <Glyphicon glyph="open-file" />
+              Load
             </Button>
             <ColorPicker callback={this.callbackColorPicker} />
           </ButtonToolbar>
