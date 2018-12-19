@@ -162,6 +162,11 @@ class PainterComponent extends React.Component {
     };
   };
 
+  //外部から image base64 dataを取る場合に使う
+  toDataURL = () => {
+    return this.refs.stage.getStage().toDataURL();
+  };
+
   render = () => {
     return (
       <div>
@@ -187,7 +192,7 @@ class PainterComponent extends React.Component {
               捨てる
             </Button>
             <Button onClick={ev => this.onClick3(ev)}>
-              <Glyphicon glyph="step-backward" />
+              <Glyphicon glyph="share-alt" className="flip-horizontal" />
               Undo
             </Button>
             <Button onClick={ev => this.onClickSave(ev)}>

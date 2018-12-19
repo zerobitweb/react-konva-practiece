@@ -15,7 +15,21 @@ class App extends React.Component {
         size: 50
       }
     };
-    return <PainterComponent {...conf} />;
+    return (
+      <div>
+        <PainterComponent {...conf} ref="painter" />
+        <input
+          type="button"
+          value="get image base64 data"
+          onClick={ev => {
+            //console.log(this.refs.painter.refs.stage.getStage().toDataURL());
+            this.refs.txta.value = this.refs.painter.toDataURL();
+          }}
+        />
+        <br />
+        <textarea style={{ width: 500, height: 300 }} ref="txta" />
+      </div>
+    );
   };
 }
 
