@@ -3,16 +3,25 @@ import reactCSS from "reactcss";
 import { SketchPicker } from "react-color";
 
 class ColorPicker extends React.Component {
-  state = {
-    displayColorPicker: false,
-    color: {
-      r: "223",
-      g: "75",
-      b: "38",
-      a: "100"
-    },
-    hex: "#DF4B26"
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      displayColorPicker: false,
+      color: {
+        // r: "223",
+        // g: "75",
+        // b: "38",
+        // a: "100"
+        r: "0",
+        g: "0",
+        b: "0",
+        a: "100"
+      },
+      //hex: "#DF4B26"
+      hex: "#000000"
+    };
+  }
 
   handleClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker });
@@ -32,9 +41,9 @@ class ColorPicker extends React.Component {
     const styles = reactCSS({
       default: {
         color: {
-          width: "36px",
-          height: "14px",
-          borderRadius: "2px",
+          width: 68 - 10,
+          height: 34 - 10,
+          borderRadius: "5px",
           background: `rgba(${this.state.color.r}, ${this.state.color.g}, ${
             this.state.color.b
           }, ${this.state.color.a})`
@@ -42,13 +51,16 @@ class ColorPicker extends React.Component {
         swatch: {
           padding: "5px",
           background: "#fff",
-          borderRadius: "1px",
+          borderRadius: "5px",
           boxShadow: "0 0 0 1px rgba(0,0,0,.1)",
           display: "inline-block",
-          cursor: "pointer"
+          cursor: "pointer",
+          width: 68,
+          height: 34
         },
         popover: {
           position: "absolute",
+          left: 100,
           zIndex: "2"
         },
         cover: {
@@ -79,5 +91,4 @@ class ColorPicker extends React.Component {
     );
   }
 }
-
 export default ColorPicker;
