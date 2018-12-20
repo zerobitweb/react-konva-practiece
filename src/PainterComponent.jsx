@@ -102,7 +102,6 @@ class PainterComponent extends React.Component {
   };
 
   callbackColorPicker = color => {
-    console.log(color);
     let context = this.canvas.getContext("2d");
     context.strokeStyle = color;
   };
