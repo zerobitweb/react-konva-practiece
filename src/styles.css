@@ -4,5 +4,38 @@
 }
 
 .flip-horizontal {
-  transform: rotate(-1, 1);
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.btn-circle.btn-sm {
+  width: 26px;
+  height: 26px;
+  padding: 4px 0px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 12px;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
 }

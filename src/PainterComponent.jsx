@@ -1,6 +1,7 @@
 import React from "react";
 import Konva from "react-konva";
 import ColorPicker from "./ColorPicker";
+import CircleColorPicker from "./CircleColorPicker";
 import {
   ButtonToolbar,
   ToggleButtonGroup,
@@ -101,6 +102,7 @@ class PainterComponent extends React.Component {
   };
 
   callbackColorPicker = color => {
+    console.log(color);
     let context = this.canvas.getContext("2d");
     context.strokeStyle = color;
   };
@@ -203,7 +205,14 @@ class PainterComponent extends React.Component {
               <Glyphicon glyph="open-file" />
               Load
             </Button>
+            {/*
             <ColorPicker callback={color => this.callbackColorPicker(color)} />
+            */}
+            <CircleColorPicker
+              width={200}
+              callback={ev => this.callbackColorPicker(ev.hex)}
+              ref="CircleColorPicker"
+            />
           </ButtonToolbar>
         </div>
         <Well
