@@ -1,6 +1,6 @@
 import React from "react";
 import Konva from "react-konva";
-import ColorPicker from "./ColorPicker";
+//import ColorPicker from "./ColorPicker";
 import CircleColorPicker from "./CircleColorPicker";
 import {
   ButtonToolbar,
@@ -127,7 +127,7 @@ class PainterComponent extends React.Component {
   };
   onClick3 = ev => {
     if (this.undoStack.length - 1 > 0) {
-      console.log("undo");
+      //console.log("undo");
       let img = this.undoStack.pop();
       img = this.undoStack.pop();
       let context = this.canvas.getContext("2d");
@@ -135,13 +135,13 @@ class PainterComponent extends React.Component {
       this.undoStack.push(img);
       this.refs.layer.batchDraw();
     } else {
-      console.log("reset");
+      //console.log("reset");
       this.onClick2();
     }
   };
   onClickSave = ev => {
     this.savedImage = this.refs.stage.getStage().toDataURL();
-    console.log(this.savedImage);
+    //console.log(this.savedImage);
   };
   onClickOpen = ev => {
     this.onClick2();
@@ -159,7 +159,7 @@ class PainterComponent extends React.Component {
       let context = this.canvas.getContext("2d");
       context.putImageData(idat, 0, 0, 0, 0, 500, 300);
       this.refs.layer.batchDraw();
-      console.log(`load::width=${img.width}/height=${img.height}`);
+      //console.log(`load::width=${img.width}/height=${img.height}`);
     };
   };
 
