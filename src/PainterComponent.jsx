@@ -163,6 +163,18 @@ class PainterComponent extends React.Component {
     };
   };
 
+  onChagneFile = ev => {
+    let file = ev.target.files;
+
+    var reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = file => {
+      //console.log(reader.result);
+      this.savedImage = reader.result;
+      this.onClickOpen(ev);
+    };
+  };
+
   //外部から image base64 dataを取る場合に使う
   toDataURL = () => {
     return this.refs.stage.getStage().toDataURL();
@@ -203,6 +215,16 @@ class PainterComponent extends React.Component {
             <Button onClick={ev => this.onClickOpen(ev)}>
               <Glyphicon glyph="open-file" />
               Load
+            </Button>
+            <input
+              type="file"
+              ref="Upload"
+              style={{ display: "none" }}
+              onChange={ev => this.onChagneFile(ev)}
+            />
+            <Button onClick={ev => this.refs.Upload.click()}>
+              <Glyphicon glyph="open-file" />
+              Upload
             </Button>
             {/*
             <ColorPicker callback={color => this.callbackColorPicker(color)} />
